@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer v-model="state.drawer" app>
+  <!-- <v-navigation-drawer v-model="state.drawer" app>
     <v-list>
       <v-list-subheader>REPORTS</v-list-subheader>
       <v-list-item
@@ -14,7 +14,8 @@
         <v-list-item-title v-text="item.text"></v-list-item-title>
       </v-list-item>
     </v-list>
-  </v-navigation-drawer>
+  </v-navigation-drawer> -->
+  <my-sidebar :is-show="state.drawer" :items="state.items" />
 
   <v-app-bar app>
     <v-app-bar-nav-icon
@@ -38,10 +39,15 @@
 </template>
 
 <script>
+import MySidebar from '../organisms/MySidebar';
 import { reactive } from 'vue';
 
 export default {
   name: 'LayoutDefault',
+
+  components: {
+    MySidebar,
+  },
 
   setup() {
     const state = reactive({
